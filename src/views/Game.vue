@@ -101,7 +101,10 @@ export default {
         child[8].textContent = this.case_huit
         child[9].textContent = this.case_neuf
         if (res.data.state !== 2){
-          this.waitForOpponentMove()
+          setTimeout(() => {
+            this.waitForOpponentMove()
+          }, 4000)
+
         }
       }).catch(err => {
         this.erreur = err.response.data.errors
@@ -141,6 +144,12 @@ export default {
 
 <template>
   <div v-if="partietrouve">
+    <div v-if="partie.state === 2" class="fin">
+      <p>Partie Finie</p>
+      <div v-if="partie.winner !== null">
+        <p></p>
+      </div>
+    </div>
     <header>
       <div id="un" :class="{joue: this.tourOwner}">
         <label> </label> <p>Host : {{partie.owner.name}}</p>
@@ -152,6 +161,7 @@ export default {
         <p v-if="partie.opponent !== null">Guest : {{partie.opponent.name}}</p> <p v-else>Guest : En attente</p>
       </div>
     </header>
+
     <div id="grid" class="hagrid">
       <div :id="index" v-for="index in 9" @click="play(index)" class="case"></div>
     </div>
