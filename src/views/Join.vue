@@ -2,16 +2,16 @@
 import api from "@/api/index.js";
 
 export default {
-  data(){
-    return{
-      code : "",
+  data() {
+    return {
+      code: "",
       erreur: [],
     }
   },
   methods: {
-    rejoindre(code){
-      api.patch("api/games/"+code+"/join").then(res => {
-        this.$router.push({name: "game", params:{id:res.data.id}})
+    rejoindre(code) {
+      api.patch("api/games/" + code + "/join").then(res => {
+        this.$router.push({name: "game", params: {id: res.data.id}})
       }).catch(erreur => {
         this.erreur = erreur.response.data.errors
         setTimeout(() => {
@@ -25,23 +25,28 @@ export default {
 </script>
 
 <template>
-<div class="ecran">
-  <div class="form">
-    <h1>Entrer le code :</h1>
-    <input type="text" v-model="code">
-    <button @click="rejoindre(code)">Entrer</button>
+  <div class="ecran">
+    <div class="join">
+      <router-link to="/home">
+        <p class="croix">X</p>
+      </router-link>
+      <div class="form">
+        <h1>Entrer le code :</h1>
+        <input type="text" v-model="code">
+        <button @click="rejoindre(code)">Entrer</button>
+      </div>
+    </div>
+
+    <div v-if="erreur !== []">
+      <p class="erreur" v-for="err in erreur">{{ err }}</p>
+
+    </div>
+
   </div>
-
-  <div v-if="erreur !== []">
-    <p class="erreur" v-for="err in erreur">{{err}}</p>
-
-  </div>
-
-</div>
 </template>
 
 <style scoped>
-.erreur{
+.erreur {
   display: block;
   border-radius: 20px;
   margin-top: 50px;
@@ -50,7 +55,7 @@ export default {
   padding: 10px;
 }
 
-.ecran{
+.ecran {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -59,18 +64,38 @@ export default {
   align-items: center;
 }
 
-.form{
+.join {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #e4bbfa;
-  width: 75vb;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: mediumpurple;
+  width: 30vw;
   height: 25vh;
   border-radius: 15px;
   padding: 20px;
 }
 
-input{
+
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.croix{
+  padding: 0;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 20px;
+}
+
+a{
+  text-decoration: none;
+  text-align: end;
+  padding-right: 10px;
+}
+
+input {
   display: block;
 }
 

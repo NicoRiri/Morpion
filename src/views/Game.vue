@@ -140,13 +140,17 @@ export default {
         <p v-if="partie.opponent !== null">Guest : {{partie.opponent.name}}</p> <p v-else>Guest : En attente</p>
       </div>
     </header>
+    <div class="jeu">
     <div id="grid" class="hagrid">
       <div :id="index" v-for="index in 9" @click="play(index)" class="case"></div>
     </div>
+      <router-link to="/home">
+        <p class="croix">Accueil</p>
+      </router-link>
+      </div>
 
 
   </div>
-
 </template>
 
 <style scoped>
@@ -174,7 +178,14 @@ header{
   justify-items: center;
 }
 
+.jeu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #un{
+  margin-right: auto;
   grid-column: 1;
 }
 
@@ -183,10 +194,32 @@ header{
 }
 
 #trois{
+  margin-left: auto;
   grid-column: 3;
 }
 
 .joue{
   background-color: gold;
+  height: 50px;
+  padding: 0px 5px 0px 5px;
 }
+
+#un.joue{
+  border-radius: 0px 0px 10px 0px;
+}
+
+#trois.joue{
+  border-radius: 0px 0px 0px 10px;
+}
+
+.croix{
+  font-weight: 700;
+  color: black;
+  margin-bottom: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
 </style>
