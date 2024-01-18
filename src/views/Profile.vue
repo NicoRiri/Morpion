@@ -72,6 +72,7 @@ export default {
 <style scoped>
 
 main {
+  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -82,7 +83,8 @@ main {
 
 h1{
   text-align: center;
-  margin-top: 0;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 input{
@@ -91,7 +93,6 @@ input{
 
 .flex{
   padding: 0 25px 0 25px;
-
   display: flex;
   justify-content: space-between;
 
@@ -105,21 +106,23 @@ a{
 
 .croix{
   font-weight: 700;
+  color: black;
+  margin-bottom: 0;
 }
 
 .flex+.flex{
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .fond {
   min-height: 50vh;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: space-around;
   justify-items: center;
   width: 25%;
   padding: 10px 15px 10px 15px;
-  background-color: #e4bbfa;
+  background-color: mediumpurple;
   border: 2px solid black;
   border-radius: 35px;
 }
@@ -135,9 +138,13 @@ a{
 }
 
 button {
-  display: block;
-  width: 30%;
+  font-size: 18px;
+  width: 40%;
   text-align: center;
+  background-color: white;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin-top: 80px;
 }
 
 .buttondiv{
