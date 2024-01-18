@@ -146,7 +146,7 @@ export default {
     <div v-if="partie.state === 2" class="fin">
       <p>Partie Finie</p>
       <div v-if="partie.winner !== null">
-        <p></p>
+        <p>Le gagnant est {{partie.winner.name}}</p>
       </div>
     </div>
     <header>
@@ -183,6 +183,15 @@ export default {
 </template>
 
 <style scoped>
+.fin{
+  display: flex;
+  justify-content: center;
+  color: green;
+  position: absolute;
+  height: 90vh;
+  font-size: 128px;
+  text-align: center;
+}
 .containererreur{
   display: flex;
   justify-content: center;
