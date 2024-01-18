@@ -6,7 +6,6 @@ export default {
     createGame() {
       api.post("api/games").then(r => {
         this.$router.push({name: "game", params: {id:r.data.id}})
-        console.log(r.data)
       })
     }
   }
@@ -24,7 +23,7 @@ export default {
       </div>
 
 
-      <router-link to="/profile">
+      <router-link to="/join">
         <h2>Rejoindre une partie</h2>
       </router-link>
     </div>
