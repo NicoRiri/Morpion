@@ -6,6 +6,7 @@ export default {
     return{
       partie : {},
       partietrouve : false,
+      erreur: []
     }
   },
   computed: {
@@ -102,6 +103,11 @@ export default {
         if (res.data.state !== 2){
           this.waitForOpponentMove()
         }
+      }).catch(err => {
+        this.erreur = err.response.data.errors
+        setTimeout(() => {
+          this.erreur = []
+        }, "3000")
       })
     },
     play(coup){
@@ -111,6 +117,12 @@ export default {
       console.log("row = "+  row)
       console.log("column = "+  column)
       api.patch("api/games/"+this.partie.id+"/play/"+row+"/"+column)
+          .catch(err => {
+            this.erreur = err.response.data.errors
+            setTimeout(() => {
+              this.erreur = []
+            }, "3000")
+          })
 
     }
   },
@@ -149,11 +161,34 @@ export default {
       </router-link>
       </div>
 
+    <div class="containererreur" v-if="erreur.length !== 0">
+      <div v-if="partie.state !== 2" class="erreur">
+        <p v-for="err in erreur">
+          {{err}}
+        </p>
+      </div>
+    </div>
+
 
   </div>
 </template>
 
 <style scoped>
+.containererreur{
+  display: flex;
+  justify-content: center;
+}
+.erreur{
+  display: block;
+  width: 40%;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 50px;
+  color: white;
+  background-color: red;
+  padding: 10px;
+}
+
 .case{
   border: solid 2px black;
   background-color: white;
