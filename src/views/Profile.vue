@@ -115,7 +115,6 @@ a{
 }
 
 .fond {
-  min-height: 50vh;
   display: block;
   flex-direction: column;
   justify-content: space-around;
