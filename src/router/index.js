@@ -6,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'Root',
       component: Home
     },
     {
@@ -37,8 +37,13 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/Join.vue')
-    }
+    },
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next()
 })
 
 export default router
