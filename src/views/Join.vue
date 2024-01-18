@@ -70,7 +70,7 @@ export default {
   justify-content: flex-start;
   background-color: mediumpurple;
   width: 30vw;
-  height: 25vh;
+  height: 180px;
   border-radius: 15px;
   padding: 20px;
 }
@@ -97,6 +97,13 @@ a{
 
 input {
   display: block;
+}
+
+button {
+  font-size: 15px;
+  border-radius: 25px;
+  background-color: white;
+
 }
 
 </style>
