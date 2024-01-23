@@ -1,35 +1,18 @@
 # Morpion
 
-This template should help get you started developing with Vue 3 in Vite.
+## 👨‍🎓 Etudiants
+- Nicolas Bernardet
+- Clément Oudin
 
-## Recommended IDE Setup
+## 💻 Utilisation en mode développement
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+Installer les dépendances
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Lancer le serveur local
 
-```sh
+```
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
